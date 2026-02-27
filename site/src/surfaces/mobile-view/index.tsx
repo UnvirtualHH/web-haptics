@@ -25,7 +25,7 @@ export default function MobileView({
   const [view, setView] = useState<"play" | "install">("play");
 
   return (
-    <div className={styles.page} data-disabled={disabled}>
+    <div className={styles.page} data-disabled={!!disabled}>
       <div className={styles.debug}>
         <button
           onClick={() => {
