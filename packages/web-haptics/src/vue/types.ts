@@ -1,5 +1,6 @@
 export type {
   HapticPattern,
+  HapticPreset,
   HapticInput,
   TriggerOptions,
   WebHapticsOptions,

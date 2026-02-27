@@ -1,5 +1,12 @@
 export type HapticPattern = number[];
-export type HapticInput = number | HapticPattern;
+
+export interface HapticPreset {
+  pattern: HapticPattern;
+  description: string;
+  intensity: number;
+}
+
+export type HapticInput = number | HapticPattern | HapticPreset;
 
 export interface TriggerOptions {
   intensity?: number;

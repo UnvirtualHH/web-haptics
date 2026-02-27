@@ -3,6 +3,7 @@ import type { HapticInput, TriggerOptions, WebHapticsOptions } from "./types";
 
 const TOGGLE_MIN = 16; // ms at intensity 1 (every frame)
 const TOGGLE_MAX = 184; // range above min (0.5 intensity ≈ 100ms)
+const MAX_PHASE_MS = 1000; // browser haptic window limit
 
 let instanceCounter = 0;
 
@@ -31,10 +32,27 @@ export class WebHaptics {
     input: HapticInput = defaultPatterns.lightTap,
     options?: TriggerOptions,
   ): Promise<void> {
-    const pattern = typeof input === "number" ? [input] : input;
-    const intensity = Math.max(0, Math.min(1, options?.intensity ?? 0.5));
+    let pattern: number[];
+    let defaultIntensity = 0.5;
+
+    if (typeof input === "number") {
+      pattern = [input];
+    } else if (Array.isArray(input)) {
+      pattern = input;
+    } else {
+      pattern = [...input.pattern];
+      defaultIntensity = input.intensity;
+    }
+
+    const intensity = Math.max(
+      0,
+      Math.min(1, options?.intensity ?? defaultIntensity),
+    );
 
     for (let i = 0; i < pattern.length; i++) {
+      if (i % 2 === 0 && pattern[i]! > MAX_PHASE_MS) {
+        pattern[i] = MAX_PHASE_MS;
+      }
       if (!Number.isFinite(pattern[i]) || pattern[i]! < 0) {
         console.warn(
           `[web-haptics] Invalid value at index ${i}: ${pattern[i]}. Pattern values must be finite non-negative numbers.`,

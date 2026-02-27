@@ -4,6 +4,7 @@ export { WebHaptics } from "./lib/web-haptics";
 export { defaultPatterns } from "./lib/web-haptics/patterns";
 export type {
   HapticPattern,
+  HapticPreset,
   HapticInput,
   TriggerOptions,
   WebHapticsOptions,
