@@ -27,6 +27,7 @@ export const InstallCommands = () => {
           <button
             key={cmd}
             onClick={() => {
+              if (i === cmdIndex) return;
               setCmdIndex(i);
               trigger();
             }}

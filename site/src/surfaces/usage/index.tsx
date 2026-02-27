@@ -1,13 +1,11 @@
 import styles from "./styles.module.scss";
 
 import { useState } from "react";
-import { useWebHaptics } from "web-haptics/react";
 
 import * as Logos from "./logos";
 
-import { useApp } from "../../context/app";
 import { CodeBlock } from "../../components/codeblock";
-import { Button } from "../../components/button";
+import { Toggle, ToggleGroup } from "../../components/toggle";
 
 const examples = {
   vanilla: `const haptics = new WebHaptics();
@@ -63,29 +61,24 @@ const frameworks = [
 ];
 
 export const Usage = () => {
-  const { debug } = useApp();
-  const { trigger } = useWebHaptics({ debug });
-
   const [frameworkIndex, setFrameworkIndex] = useState(0);
 
   return (
     <div className={styles.usage}>
-      <div className={styles.controls}>
+      <ToggleGroup>
         {frameworks.map((f, i) => (
-          <Button
+          <Toggle
             key={f.name}
-            disabled={frameworkIndex === i}
+            active={frameworkIndex === i}
             onClick={() => {
               setFrameworkIndex(i);
-              trigger();
             }}
-            aria-label={`View example for ${f.name}`}
           >
             <span className={styles.logo}>{f.logo}</span>
             <span className={styles.name}>{f.name}</span>
-          </Button>
+          </Toggle>
         ))}
-      </div>
+      </ToggleGroup>
 
       <CodeBlock
         code={`import { useWebHaptics } from '${frameworks[frameworkIndex % frameworks.length].entrypoint}';

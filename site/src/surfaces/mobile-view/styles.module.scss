@@ -19,10 +19,11 @@
   button {
     background: none;
     cursor: pointer;
+    opacity: 0.2;
 
     color: var(--color);
 
-    transition: all 400ms var(--ease-snappy);
+    transition: all 400ms ease;
 
     &:hover,
     &:focus-visible {
@@ -39,7 +40,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 0.5rem;
   width: 100%;
 }
 

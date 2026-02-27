@@ -26,6 +26,10 @@
       &[data-active="true"] {
         opacity: 1;
       }
+
+      &[data-active="true"] {
+        cursor: default;
+      }
     }
   }
 }

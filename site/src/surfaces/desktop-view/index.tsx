@@ -13,7 +13,7 @@ export default function DesktopView() {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.phone}>
-            <MobileView />
+            <MobileView disabled />
           </div>
           <div className={styles.scan}>
             <ScanText />

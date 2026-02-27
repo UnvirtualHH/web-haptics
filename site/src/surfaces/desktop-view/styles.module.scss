@@ -62,9 +62,8 @@
 
 .content {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  gap: 2rem;
 }
 .phone {
   transform: rotate(-3deg);
@@ -81,6 +80,8 @@
 
 .scan {
   position: relative;
+  margin-left: -5%;
+  margin-bottom: -5%;
 
   > svg:first-child {
     display: block;
