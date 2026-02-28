@@ -39,7 +39,9 @@ export default function DesktopView() {
             }}
           >
             <div className={styles.phone} data-shaking={shaking}>
-              <MobileView disabled setShaking={setShaking} />
+              <div className={styles.screen}>
+                <MobileView disabled setShaking={setShaking} />
+              </div>
             </div>
           </motion.div>
           <div className={styles.scan}>

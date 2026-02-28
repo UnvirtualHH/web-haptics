@@ -1,7 +1,26 @@
 import { motion } from "motion/react";
 
-const Letter = ({ children }: { children: React.ReactNode; index: number }) => {
-  return <motion.g>{children}</motion.g>;
+const Letter = ({
+  children,
+  index,
+}: {
+  children: React.ReactNode;
+  index: number;
+}) => {
+  return (
+    <motion.g
+      animate={{ rotate: [0, 4, -4, 4, -4, 0] }}
+      transition={{
+        repeat: Infinity,
+        repeatDelay: 4,
+        duration: 0.4,
+        delay: Math.random() * 5,
+        ease: "easeInOut",
+      }}
+    >
+      {children}
+    </motion.g>
+  );
 };
 
 export const Logo = () => (
@@ -12,7 +31,71 @@ export const Logo = () => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     aria-label="Web Haptics"
+    overflow="visible"
   >
+    <g transform="translate(-20 -10)">
+      <motion.path
+        d="M45.048 26.6875L44.3026 27.0385C33.9459 31.9151 27.6693 42.6736 28.5209 54.0892"
+        stroke="#E8E8E8"
+        strokeWidth="4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        animate={{ opacity: [0, 1, 1, 0] }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          repeatDelay: 1,
+          ease: "easeInOut",
+        }}
+      />
+      <motion.path
+        d="M36.0386 2.00049L34.5365 2.67805C13.6666 12.0917 0.763667 33.4008 2.09391 56.2569"
+        stroke="#E8E8E8"
+        strokeWidth="4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        animate={{ opacity: [0, 1, 1, 0] }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          repeatDelay: 1,
+          delay: 0.3,
+          ease: "easeInOut",
+        }}
+      />
+    </g>
+    <g transform="translate(250 30) rotate(115)">
+      <motion.path
+        d="M45.048 26.6875L44.3026 27.0385C33.9459 31.9151 27.6693 42.6736 28.5209 54.0892"
+        stroke="#E8E8E8"
+        strokeWidth="4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        animate={{ opacity: [0, 1, 1, 0] }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          repeatDelay: 1,
+          ease: "easeInOut",
+        }}
+      />
+      <motion.path
+        d="M36.0386 2.00049L34.5365 2.67805C13.6666 12.0917 0.763667 33.4008 2.09391 56.2569"
+        stroke="#E8E8E8"
+        strokeWidth="4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        animate={{ opacity: [0, 1, 1, 0] }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          repeatDelay: 1,
+          delay: 0.3,
+          ease: "easeInOut",
+        }}
+      />
+    </g>
+
     <g filter="url(#filter0_d_7391_1353)">
       <Letter index={0}>
         <mask
