@@ -40,7 +40,17 @@ export default function MobileView({
       </div>
       <div className={styles.container}>
         <div className={styles.header}>
-          <Logo />
+          <button
+            onClick={() => {
+              trigger();
+              setTimeout(() => {
+                trigger("buzz");
+              }, 1000);
+            }}
+            className={styles.logoButton}
+          >
+            <Logo />
+          </button>
           <p>Haptic feedback for the mobile web</p>
         </div>
 
