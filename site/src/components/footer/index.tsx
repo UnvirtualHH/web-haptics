@@ -22,14 +22,15 @@ export const Footer = () => {
         </a>
       </div>
       <div className={styles.details}>
-        <span>v{version}</span> •
+        <span>v{version}</span>
+        {/** •
         <a
           href="https://github.com/lochie/web-haptics"
           target="_blank"
           rel="noopener noreferrer"
         >
           GitHub
-        </a>
+        </a> */}
       </div>
     </footer>
   );
